@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Based Sentiment Analysis System</h1>
+        <p class="subtitle">Enter a review or comment to analyze its sentiment</p>
+
+        <textarea id="reviewText" placeholder="Type your review or comment here..."></textarea>
+
+        <button onclick="analyzeSentiment()">Analyze Sentiment</button>
+
+        <div class="batch-upload">
+            <input type="file" id="csvFile" accept=".csv">
+            <button onclick="analyzeBatch()">Analyze CSV</button>
+        </div>
+
+        <div id="batchResult" class="result-box hidden">
+            <p id="batchSummary"></p>
+            
+            <div class="charts-container">
+                <div class="chart-item">
+                    <img id="pieChart" src="" alt="Sentiment Distribution">
+                </div>
+                <div class="chart-item">
+                    <img id="barChart" src="" alt="Sentiment Count">
+                </div>
+            </div>
+
+            <a id="downloadLink" class="download-btn hidden" download="sentiment_results.csv">Download Results CSV</a>
+        </div>
+
+        <div id="result" class="result-box hidden">
+    <h2 id="sentimentLabel"></h2>
+    <div class="confidence-bar-container">
+        <div id="confidenceBar" class="confidence-bar"></div>
+    </div>
+    <p id="confidenceText"></p>
+</div>
+
+        <div id="errorBox" class="error-box hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
