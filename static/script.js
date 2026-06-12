@@ -55,6 +55,7 @@ async function analyzeBatch() {
     const barChart = document.getElementById('barChart');
 
     errorBox.classList.add('hidden');
+    batchResult.classList.remove('show');
     batchResult.classList.add('hidden');
     downloadLink.classList.add('hidden');
 
@@ -97,6 +98,9 @@ async function analyzeBatch() {
         downloadLink.classList.remove('hidden');
 
         batchResult.classList.remove('hidden');
+        setTimeout(() => {
+            batchResult.classList.add('show');
+        }, 50);
 
     } catch (err) {
         errorBox.textContent = "Something went wrong with batch analysis.";
